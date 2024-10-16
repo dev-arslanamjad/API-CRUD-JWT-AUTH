@@ -1,6 +1,8 @@
 <?php
 
+
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\API\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,4 +19,5 @@ Route::middleware('auth:api')->group(function () {
     Route::post('me', [AuthController::class, 'me']);
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
+    Route::apiResource('posts', PostController::class);
 });
